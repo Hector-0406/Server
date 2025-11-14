@@ -1,0 +1,78 @@
+[
+    {
+        "marca": "Toyota",
+        "modelo": "Corolla",
+        "año": 2020
+    },
+    {
+        "marca": "Honda",
+        "modelo": "Civic",
+        "año": 2010
+    },
+    {
+        "marca": "Jeep",
+        "modelo": "Grand Cherroke",
+        "año": 2010
+    },
+    {
+        "marca": "Chevrolet",
+        "modelo": "Camaro",
+        "año": 2004
+    },
+    {
+        "marca": "Nissan",
+        "modelo": "Maxima",
+        "año": 2006
+    },
+    {
+        "marca": "Ford",
+        "modelo": "Mustang",
+        "año": 2018
+    },
+    {
+        "marca": "Volkswagen",
+        "modelo": "Golf",
+        "año": 2015
+    },
+    {
+        "marca": "BMW",
+        "modelo": "X5",
+        "año": 2019
+    },
+    {
+        "marca": "Audi",
+        "modelo": "A4",
+        "año": 2017
+    },
+    {
+        "marca": "Hyundai",
+        "modelo": "Elantra",
+        "año": 2012
+    },
+    {
+        "marca": "Kia",
+        "modelo": "Sorento",
+        "año": 2016
+    },
+    {
+        "marca": "Mazda",
+        "modelo": "3",
+        "año": 2014
+    },
+    {
+        "marca": "Subaru",
+        "modelo": "Impreza",
+        "año": 2013
+    },
+    {
+        "marca": "Mercedes-Benz",
+        "modelo": "C-Class",
+        "año": 2020
+    },
+    {
+        "marca": "Tesla",
+        "modelo": "Model 3",
+        "año": 2021
+    }
+]
+
