@@ -95,7 +95,7 @@ class Server {
     listen() {
         //! Inicializa el servidor
         this.app.listen(this.port, () => {
-            console.log(blue + `http://${this.host}:${this.port}/consultarArma`+ white);
+            console.log(blue + `http://${this.host}:${this.port}/`+ white);
             console.log(yellow + 'Use Ctrl+C to quit this process'+  white); }  
         );
     }
