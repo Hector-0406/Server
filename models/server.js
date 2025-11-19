@@ -95,7 +95,8 @@ class Server {
     listen() {
         //! Inicializa el servidor
         this.app.listen(this.port, () => {
-            console.log(blue + `http://${this.host}:${this.port}/`+ white);
+            console.log('Local:',  blue + `http://${this.host}:${this.port}/`+ white);
+            console.log('VPN:', blue + `http://100.113.115.21:${this.port}/`+  white);
             console.log(yellow + 'Use Ctrl+C to quit this process'+  white); }  
         );
     }

@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    display: grid;
+    display: flex;
     background-color: #101010;
     color: #fff;
     justify-content: center;
