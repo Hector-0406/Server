@@ -1,8 +1,6 @@
 //* Importaciones de Libreias y JSON
 const express = require('express');  
 const cors = require('cors');
-const path = require('path');
-let datos = require(path.join(__dirname, '../datosAPI.json'));
 const mongoose = require('mongoose');
 //* Colores Consola
 const blue = '\x1b[34m';
@@ -19,20 +17,20 @@ class Server {
     }
 
     middleware() {
-        //! Inicializa el directorio público
+        //Inicializa el directorio público
         this.app.use(express.static('./public'));
         this.app.use(express.json());
         this.app.use(cors());
     }
 
     conectarMongo(){
-        try{
-            mongoose.connect('mongodb://localhost:27017/MinecraftDB');
+        mongoose.connect('mongodb://localhost:27017/MinecraftDB')
+        .then(() => {
             console.log('\n✅ MongoDB Conectado');
-        }catch(error){
-            console.error('❌ Error conectando a MongoDB:', error)
-        }
-        
+        })
+        .catch(error => {
+            console.log('\n❌ Error conectando a MongoDB:', error.message);
+        });
         
         let Schema = mongoose.Schema;
         //Las claves y tipos coinciden con la BD
@@ -46,22 +44,38 @@ class Server {
             descripcion: String
         });
         //Generamos el modelo
-        this.armaModel = mongoose.model('arma', schemaArma);
+        this.Model = mongoose.model('arma', schemaArma);
     }
 
     routes() {
-        // Ruta para consultar las armas de minecraft
+        // Ruta para Consultar
         this.app.get('/consultarArma',  async(req, res) => {
-            let  consulta = await this.armaModel.find({});
+            let  consulta = await this.Model.find({});
             res.json(consulta);
         });
 
-        // Ruta para consultar datos del JSON
-        this.app.get('/consultar', (req,res) => {
-            res.json(datos); 
+        // Ruta para Eliminar
+        this.app.delete('/eliminarArma', async(req, res) => {
+            let id = req.query._id;
+            await this.Model.deleteMany({_id:id});
+            console.log("🗑️ Mod Eliminado de MongoDB")
+            res.send('eliminado');
         });
 
-        // Ruta para registrar un arma de minecraft
+        // Ruta para Actualizar
+        this.app.patch('/actualizarArma', async(req, res) => {
+            let id = req.query._id;
+            let valores = req.body;
+            await this.Model.findOneAndUpdate(
+                {_id: id},
+                {$set: valores},
+                {new: true}
+            );
+            console.log("🔄 Mod Actualizado de MongoDB");
+            res.send('actualizado');
+        });
+
+        // Ruta para Registrar
         this.app.post('/registrarArma', (req, res) => {
             //Datos recibidos del body o inputs
             let nombre = req.body.nombre;
@@ -84,19 +98,17 @@ class Server {
             }
 
             //Guardar en MongoDB
-            let guardar = new this.armaModel(arma);
+            let guardar = new this.Model(arma);
             guardar.save(); 
-            console.log('✅ Arma Registrada en MongoDB');
-            res.send('Arma Registrada');
+            console.log('✅ Mod Registrado en MongoDB');
+            res.send('Mod Registrado');
         });
     }
 
-    //El puerto esta escuchando en el puerto 5000 
+    //Servidor eschuchando en el puerto 5000
     listen() {
-        //! Inicializa el servidor
         this.app.listen(this.port, () => {
-            console.log('Local:',  blue + `http://${this.host}:${this.port}/`+ white);
-            console.log('VPN:', blue + `http://100.113.115.21:${this.port}/`+  white);
+            console.log('\nLocal:',  blue + `http://${this.host}:${this.port}/`+ white);
             console.log(yellow + 'Use Ctrl+C to quit this process'+  white); }  
         );
     }
