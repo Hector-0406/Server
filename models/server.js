@@ -1,8 +1,8 @@
-//* Importaciones de Libreias y JSON
+// Importaciones de Libreias
 const express = require('express');  
 const cors = require('cors');
 const mongoose = require('mongoose');
-//* Colores Consola
+// Colores Consola
 const blue = '\x1b[34m';
 const white = '\x1b[0m';
 const yellow = '\x1b[33m';
