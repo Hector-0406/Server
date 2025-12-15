@@ -73,7 +73,7 @@ class Server {
             );
             console.log("🔄 Mod Actualizado de MongoDB");
             res.send('actualizado');
-        });
+        });j
 
         // Ruta para Registrar
         this.app.post('/registrarArma', (req, res) => {
