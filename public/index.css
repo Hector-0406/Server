@@ -36,38 +36,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-p {
-    font-size: 1.2em;
-    margin-top: 5px;
-    line-height: 1.6;
-}
-
-.api-link-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 15px 0;
-    background-color: #121212; 
-    border: 1px solid #80BFFF; 
-    color: #80BFFF; 
-    border-radius: 8px;
-    text-decoration: none; 
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: all 0.3s ease; 
-}
-
-.api-link-button:hover {
-    background-color: #80BFFF; 
-    color: #1F1F1F; 
-    box-shadow: 0 0 15px rgba(128, 191, 255, 0.8);
-    transform: translateY(-2px); 
-}
-
-.api-link-button:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
 .status-badge {
     display: inline-block;
     padding: 6px 15px;
