@@ -29,7 +29,7 @@ class Server {
             console.log('\n✅ MongoDB Conectado');
         })
         .catch(error => {
-            console.log('\n❌ Error conectando a MongoDB:', error.message);
+            console.log('\n❌ Error conectando a MongoDB: ', error.message);
         });
         
         let Schema = mongoose.Schema;
@@ -73,7 +73,7 @@ class Server {
             );
             console.log("🔄 Mod Actualizado de MongoDB");
             res.send('actualizado');
-        });j
+        });
 
         // Ruta para Registrar
         this.app.post('/registrarArma', (req, res) => {
